@@ -1,0 +1,11 @@
+projects.json
+
+[
+    {
+        name,
+        description,
+        project,
+        github,
+        image
+    },
+]
