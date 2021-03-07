@@ -1,0 +1,15 @@
+@font-face {
+    font-family: "RobotoMono";
+    src: url("../public/fonts/RobotoMono-Thin.ttf");
+}
+
+$background-color: #0e141b;
+$title: #fff;
+$text: #999;
+
+$primary-font: "RobotoMono", monospace;
+
+/*
+Talvez separar em mais de um arquivo;
+E fazer os media querries assim também
+*/

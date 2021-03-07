@@ -1,0 +1,11 @@
+@import "../defaults";
+
+.container {
+    h1 {
+        color: $title;
+    }
+
+    p {
+        color: $text;
+    }
+}

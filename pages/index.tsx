@@ -29,8 +29,8 @@ useEffect(() => {
         <title>Homepage | Thiago </title>
       </Head>
 
-      <div className="container">
-        <h1>Hello, I'm me, a web developer and math student, I'll put some coll stuff here </h1>
+      <div className={styles.container}>
+        <h1>Hello, I'm me, a web developer and math student, I'll put some cool stuff here </h1>
 
         <p>Not sure about the semantic, I have to improve that.</p>
 

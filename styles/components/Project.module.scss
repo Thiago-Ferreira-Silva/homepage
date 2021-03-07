@@ -1,50 +1,54 @@
+@import "../defaults";
+
 .container {
     position: relative;
     width: 25vw;
     height: 25vw;
-}
 
-.container Image {
-    border: solid green;
-}
+    .Image {
+        border: solid green;
+    }
 
-.content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; /* colocar icones do fontawesome*/
-}
+    .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%; /* colocar icones do fontawesome*/
 
-.content h2 {
-    margin: 0.5rem 0 1rem 0;
-    font-size: 1.6rem;
-    text-align: center;
-}
+        h2 {
+            margin: 0.5rem 0 1rem 0;
+            font-size: 1.6rem;
+            text-align: center;
+            color: $title;
+        }
 
-.content section {
-    position: absolute;
-    top:  0;
-    width: 100%;
-    height: 100%;
-    text-align: center;
+        section {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
 
-    display: flex;
-    flex-direction:  column;
-    justify-content: flex-end;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
 
-    transition: opacity 0.3s, background-color 0.3s;
-    opacity: 0;
-}
+            transition: opacity 0.3s, background-color 0.3s;
+            opacity: 0;
 
-.content section:hover {
-    opacity: 1;
-    background-color: #0003;
-}
+            p {
+                flex: 1;
+                margin-top: 3.1rem;
+                color: $text;
+            }
+        }
 
-.content section p {
-    flex: 1;
-    margin-top: 3.1rem;
+        section:hover {
+            opacity: 1;
+            background-color: #0003;
+        }
+    }
 }
 
 /* usar as funcionalidades do sass*/
