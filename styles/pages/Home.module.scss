@@ -5,6 +5,19 @@
         color: $title;
     }
 
+    h2 {
+        color: $title;
+    }
+
+    section.projects, section.contact {
+        text-align: center;
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
     p {
         color: $text;
     }

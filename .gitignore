@@ -34,3 +34,4 @@ yarn-error.log*
 .vercel
 
 projects.json
+yarn.lock

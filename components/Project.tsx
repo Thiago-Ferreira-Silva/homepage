@@ -13,14 +13,13 @@ interface ProjectProps {
 export default function Project({ name, description, project, github, image }: ProjectProps) {
     return (
         <div className={styles.container}>
-            <Image src={image} width='350' height='350' alt="Project" />
+            <Image className={styles.image} src={image} width='350' height='350' alt="Project" />
             <div className={styles.content}>
-                <h2>{name}</h2>
+                <a href={project} target="_blank" className={styles.projectLink}><h2>{name}</h2></a>
                 <section>
                     <p>{description}</p>
                     <div className={styles.links}>
-                        <a href={project} target="_blank">Link to this project</a> |
-                <a href={github} target="_blank">Project on GitHub</a>
+                        <a href={github} target="_blank">Project on GitHub</a>
                     </div>
                 </section>
             </div>
@@ -28,4 +27,4 @@ export default function Project({ name, description, project, github, image }: P
     )
 }
 
-//corrigir os bugs no calendário e usar a fonte de lá aqui
+//fazer o link para o projeto funcionar

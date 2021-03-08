@@ -34,7 +34,7 @@ useEffect(() => {
 
         <p>Not sure about the semantic, I have to improve that.</p>
 
-        <section>
+        <section className={styles.contact}>
           <h2>Contact</h2>
           <a href="">Links to likedIn</a> |
           <a href=""> GitHub</a> |
@@ -42,7 +42,7 @@ useEffect(() => {
           <a href=""> It's better in the botton?</a>
         </section>
 
-        <section>
+        <section className={styles.projects} >
           <h2>My projects</h2>
           <ul>
             { projectsJSX }
