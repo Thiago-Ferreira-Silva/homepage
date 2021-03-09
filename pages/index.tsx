@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import fs from 'fs'
 import path from 'path'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 import styles from '../styles/pages/Home.module.scss'
 import Project from '../components/Project'
@@ -16,12 +18,12 @@ interface Project {
 
 export default function Home({ projects }) {
 
-const [ projectsJSX, setProjectsJSX ] = useState(null)
+  const [projectsJSX, setProjectsJSX] = useState(null)
 
-useEffect(() => {
-  const projectsJSX = projects.map((project: Project) => <Project {...project} key={Math.random()} />)
-  setProjectsJSX(projectsJSX)
-}, [])
+  useEffect(() => {
+    const projectsJSX = projects.map((project: Project) => <Project {...project} key={Math.random()} />)
+    setProjectsJSX(projectsJSX)
+  }, [])
 
   return (
     <div>
@@ -34,24 +36,27 @@ useEffect(() => {
 
         <p>Not sure about the semantic, I have to improve that.</p>
 
-        <section className={styles.contact}>
-          <h2>Contact</h2>
-          <a href="">Links to likedIn</a> |
-          <a href=""> GitHub</a> |
-          <a href=""> And maybe something else</a> |
-          <a href=""> It's better in the botton?</a>
-        </section>
-
         <section className={styles.projects} >
           <h2>My projects</h2>
           <ul>
-            { projectsJSX }
+            {projectsJSX}
           </ul>
         </section>
 
         <section>
           <p>A blog, maybe?</p>
         </section>
+
+        <section className={styles.contact}>
+          <h2>Contact</h2>
+          <a href="https://www.linkedin.com/in/FerreiraDaSilvaThiago" target="_blank">
+            <FontAwesomeIcon icon={faLinkedin} size="2x" />
+          </a>
+          <a href="https://github.com/Thiago-Ferreira-Silva" target="_blank">
+            <FontAwesomeIcon icon={faGithub} size="2x" />
+          </a>
+        </section>
+
       </div>
     </div>
   )
@@ -63,6 +68,6 @@ export async function getStaticProps() {
   const projects = JSON.parse(fs.readFileSync(fullPath, 'utf-8'))
 
   return {
-      props: { projects }
+    props: { projects }
   }
 }
