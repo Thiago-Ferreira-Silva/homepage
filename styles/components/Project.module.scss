@@ -20,10 +20,12 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%; /* colocar icones do fontawesome*/
+        height: 100%;
 
         .projectLink {
             h2 {
+                position: relative;
+                z-index: 10;
                 margin: 0.5rem 0 1rem 0;
                 font-size: 1.6rem;
                 text-align: center;
@@ -58,5 +60,3 @@
         }
     }
 }
-
-/* usar as funcionalidades do sass*/

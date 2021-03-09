@@ -8,7 +8,7 @@ interface ProjectProps {
     project: string
     github: string
     image: string
-} // check if there are better types
+}
 
 export default function Project({ name, description, project, github, image }: ProjectProps) {
     return (
@@ -26,5 +26,3 @@ export default function Project({ name, description, project, github, image }: P
         </div>
     )
 }
-
-//fazer o link para o projeto funcionar
