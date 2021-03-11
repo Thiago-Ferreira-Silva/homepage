@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Calculator",
+        "description": "A calculator this is a description",
+        "project": "https://calculator-3ag3kdp8o.vercel.app",
+        "github": "https://github.com/Thiago-Ferreira-Silva/calculator-react",
+        "image": "/images/calculator.png"
+    },
+    {
+        "name": "Calendar",
+        "description": "A calendar this is a description",
+        "project": "https://calendar-inky.vercel.app",
+        "github": "https://github.com/Thiago-Ferreira-Silva/calendar",
+        "image": "/images/calendar.png"
+    },
+    {
+        "name": "Social Network",
+        "description": "This is a simple social network that took me much more time than I expected.",
+        "project": "https://social-network-rho.vercel.app",
+        "github": "https://github.com/Thiago-Ferreira-Silva/social-network",
+        "image": "/images/social-network.png"
+    },
+    {
+        "name": "Snake",
+        "description": "This is a simple but funny snake game.",
+        "project": "https://snake-five.vercel.app",
+        "github": "https://github.com/Thiago-Ferreira-Silva/Snake",
+        "image": "/images/snake.png"
+    }
+]
