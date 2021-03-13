@@ -9,6 +9,8 @@
     "typeorm": "ts-node-dev node_modules/typeorm/cli.js"
   },
   "dependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/plugin-proposal-decorators": "^7.13.5",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
