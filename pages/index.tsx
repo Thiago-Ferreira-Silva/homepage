@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { GetStaticProps } from 'next'
 import fs from 'fs'
 import path from 'path'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,6 +8,8 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import styles from '../styles/pages/Home.module.scss'
 import Project from '../components/Project'
 import { useEffect, useState } from 'react'
+import { ProjectsController } from './api/projectsController'
+import createConnection from '../server/database'
 
 interface Project {
   name: string
@@ -14,7 +17,7 @@ interface Project {
   project: string
   github: string
   image: string
-} //talvez usar context API para não ter que repetir isso
+}
 
 export default function Home({ projects }) {
 
@@ -62,12 +65,15 @@ export default function Home({ projects }) {
   )
 }
 
-// add projects and blog posts dynamically
-export async function getStaticProps() {
-  const fullPath = path.join(process.cwd(), 'data', 'projects.json')
-  const projects = JSON.parse(fs.readFileSync(fullPath, 'utf-8'))
+export const getStaticProps: GetStaticProps = async () => {
+  createConnection()
 
+  //const projectsController = new ProjectsController()
+  //const projects = await projectsController.getProjects()
+  const fullPath = path.join(process.cwd(), 'data', 'projects.json')
+  const projects: Project[] = JSON.parse(fs.readFileSync(fullPath, 'utf-8'))
+  //talvez mudar de typeorm para mikroorm
   return {
-    props: { projects }
+    props: {projects}
   }
 }
