@@ -1,12 +1,14 @@
 import 'reflect-metadata'
-import { getCustomRepository } from 'typeorm'
-import { ProjectsRepository } from '../../server/repositories'
+import { MikroORM } from '@mikro-orm/core'
+import config from '../../server/config/mikro-orm'
+import { Project } from '../../server/models'
 
 class ProjectsController {
     async getProjects() {
-        const projectsRepository = getCustomRepository(ProjectsRepository)
-        const projects = await projectsRepository.find()
+        const orm = await MikroORM.init(config)
+        const projectsRepository = orm.em.getRepository(Project)
 
+        const projects = await projectsRepository.find({})
         return projects
     }
 }

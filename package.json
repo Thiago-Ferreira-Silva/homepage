@@ -2,11 +2,19 @@
   "name": "homepage",
   "version": "0.1.0",
   "private": true,
+  "mikro-orm": {
+    "useTsNode": true,
+    "tsConfigPath": "./tsconfig.orm.json",
+    "configPaths": [
+      "./server/config/mikro-orm.ts"
+    ]
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "typeorm": "ts-node-dev node_modules/typeorm/cli.js"
+    "typeorm": "ts-node-dev node_modules/typeorm/cli.js",
+    "mikro-orm": "node --require ts-node/register node_modules/.bin/mikro-orm"
   },
   "dependencies": {
     "@babel/core": "^7.13.10",
@@ -16,6 +24,9 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
+    "@mikro-orm/cli": "^4.4.4",
+    "@mikro-orm/core": "^4.4.4",
+    "@mikro-orm/sqlite": "^4.4.4",
     "babel-plugin-transform-typescript-metadata": "^0.3.1",
     "next": "10.0.6",
     "react": "17.0.1",

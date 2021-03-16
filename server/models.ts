@@ -1,24 +1,28 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm'
+import { Entity, PrimaryKey, Property, EntityRepositoryType } from '@mikro-orm/core'
 import { v4 as uuid } from 'uuid'
+import { ProjectsRepository } from './repositories'
 
-@Entity('projects')
+@Entity({ customRepository: () => ProjectsRepository })
 class Project {
-    @PrimaryColumn()
+
+    [EntityRepositoryType]?: ProjectsRepository
+
+    @PrimaryKey()
     readonly id: string
 
-    @Column()
+    @Property()
     name: string
 
-    @Column()
+    @Property()
     description: string
 
-    @Column()
+    @Property()
     project: string
 
-    @Column()
+    @Property()
     github: string
 
-    @Column()
+    @Property()
     image: string
 
     constructor() {
