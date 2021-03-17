@@ -13,7 +13,6 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "typeorm": "ts-node-dev node_modules/typeorm/cli.js",
     "mikro-orm": "node --require ts-node/register node_modules/.bin/mikro-orm"
   },
   "dependencies": {
@@ -26,6 +25,7 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@mikro-orm/cli": "^4.4.4",
     "@mikro-orm/core": "^4.4.4",
+    "@mikro-orm/migrations": "^4.4.4",
     "@mikro-orm/sqlite": "^4.4.4",
     "babel-plugin-transform-typescript-metadata": "^0.3.1",
     "next": "10.0.6",
@@ -34,7 +34,6 @@
     "reflect-metadata": "^0.1.13",
     "sass": "^1.32.8",
     "sqlite3": "^5.0.2",
-    "typeorm": "^0.2.31",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

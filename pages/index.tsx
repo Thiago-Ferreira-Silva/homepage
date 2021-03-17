@@ -1,7 +1,5 @@
 import Head from 'next/head'
 import { GetStaticProps } from 'next'
-import fs from 'fs'
-import path from 'path'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
@@ -9,7 +7,6 @@ import styles from '../styles/pages/Home.module.scss'
 import Project from '../components/Project'
 import { useEffect, useState } from 'react'
 import { ProjectsController } from './api/projectsController'
-import createConnection from '../server/database'
 
 interface Project {
   name: string
@@ -66,14 +63,13 @@ export default function Home({ projects }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  createConnection()
 
-  //const projectsController = new ProjectsController()
-  //const projects = await projectsController.getProjects()
-  const fullPath = path.join(process.cwd(), 'data', 'projects.json')
-  const projects: Project[] = JSON.parse(fs.readFileSync(fullPath, 'utf-8'))
-  //talvez mudar de typeorm para mikroorm
+  const projectsController = new ProjectsController()
+  const projects = JSON.parse(JSON.stringify(await projectsController.getProjects()))
   return {
     props: {projects}
   }
 }
+
+// adicionar projetos por uma admin page e adicionar algumas métricas; pensar em algo para escrever
+// colocar o database no gitignore

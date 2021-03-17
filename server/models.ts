@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid'
 import { ProjectsRepository } from './repositories'
 
 @Entity({ customRepository: () => ProjectsRepository })
-class Project {
+class Projects {
 
     [EntityRepositoryType]?: ProjectsRepository
 
@@ -31,5 +31,4 @@ class Project {
         }
     }
 }
-//reflect-metadata and "emitDecoratorMetadata": true ?
-export { Project }
+export { Projects }

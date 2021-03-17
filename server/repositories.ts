@@ -1,6 +1,6 @@
 import { EntityRepository } from '@mikro-orm/sqlite'
-import { Project } from './models'
+import { Projects } from './models'
 
-class ProjectsRepository extends EntityRepository<Project> {}
+class ProjectsRepository extends EntityRepository<Projects> {}
 
 export { ProjectsRepository }
