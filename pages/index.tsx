@@ -43,9 +43,11 @@ export default function Home({ projects }) {
           </ul>
         </section>
 
-        <section>
-          <p>A blog, maybe?</p>
-        </section>
+        {/*
+          <section>
+            <p>A blog?</p>
+          </section>
+        */}
 
         <section className={styles.contact}>
           <h2>Contact</h2>
@@ -67,9 +69,8 @@ export const getStaticProps: GetStaticProps = async () => {
   const projectsController = new ProjectsController()
   const projects = JSON.parse(JSON.stringify(await projectsController.getProjects()))
   return {
-    props: {projects}
+    props: { projects }
   }
 }
 
-// adicionar projetos por uma admin page e adicionar algumas métricas; pensar em algo para escrever
 // colocar o database no gitignore
