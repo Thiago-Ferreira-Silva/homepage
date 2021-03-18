@@ -18,9 +18,7 @@ export default function Project({ name, description, project, github, image }: P
                 <a href={project} target="_blank" className={styles.projectLink}><h2>{name}</h2></a>
                 <section>
                     <p>{description}</p>
-                    <div className={styles.links}>
-                        <a href={github} target="_blank">Project on GitHub</a>
-                    </div>
+                    <a href={github} target="_blank">Project on GitHub</a>
                 </section>
             </div>
         </div>

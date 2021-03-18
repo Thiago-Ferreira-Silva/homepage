@@ -10,11 +10,6 @@
 
     box-shadow: 14px 14px 60px -10px #0000004d;
 
-    .image {
-        /* Os estilos daqui não estão sendo aplicados*/
-        visibility: hidden;
-    }
-
     .content {
         position: absolute;
         top: 0;
@@ -56,7 +51,7 @@
 
         section:hover {
             opacity: 1;
-            background-color: #0003;
+            background-color: #000c;
         }
     }
 }

@@ -4,16 +4,19 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: $primary-font;
 
   background-color: $background-color;
 
-  a, a:hover {
+  a,
+  a:hover {
     text-decoration: none;
     color: $title;
-}
+  }
 }
 
 * {
   box-sizing: border-box;
+
+  font-family: $primary-font;
+  font-weight: 100;
 }
