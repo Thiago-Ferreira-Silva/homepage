@@ -6,7 +6,7 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import styles from '../styles/pages/Home.module.scss'
 import Project from '../components/Project'
 import { useEffect, useState } from 'react'
-import { ProjectsController } from './api/projectsController'
+import { ProjectsController } from '../server/controllers/projectsController'
 
 interface Project {
   name: string
@@ -73,4 +73,4 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-// colocar o database no gitignore
+// deixar responsivo para mobile
