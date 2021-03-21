@@ -13,7 +13,6 @@ interface Project {
   description: string
   project: string
   github: string
-  image: string
 }
 
 export default function Home({ projects }) {

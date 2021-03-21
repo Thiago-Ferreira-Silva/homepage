@@ -8,7 +8,6 @@ interface Project {
     description: string
     project: string
     github: string
-    image: string
   }
 
 class ProjectsController {
@@ -31,6 +30,19 @@ class ProjectsController {
             return { status: 201, msg: "Successfully created!" }
         } catch(e) {
             return { status: 500, msg: "Error at creating project" }
+        }
+    }
+
+    async deleteProject(name: string) {
+        const orm = await MikroORM.init(config)
+        const projectsRepository = orm.em.getRepository(Projects)
+
+        try {
+            const project = await projectsRepository.findOne({ name })
+            await projectsRepository.removeAndFlush(project)
+            return { status: 201, msg: "Successfully deleted!" }
+        } catch(e) {
+            return { status: 500, msg: "Error at deleting project" }
         }
     }
 }

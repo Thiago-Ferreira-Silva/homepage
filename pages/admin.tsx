@@ -5,18 +5,19 @@ import axios from 'axios'
 import Resizer from 'react-image-file-resizer'
 
 import styles from '../styles/pages/Admin.module.scss'
-import Project from '../components/Project'
+
+const initialProject = {
+    name: null,
+    description: null,
+    project: null,
+    github: null,
+    imageFile: null
+}
 
 export default function Admin() {
     const router = useRouter()
-    const [project, setProject] = useState({
-        name: null,
-        description: null,
-        project: null,
-        github: null,
-        image: null,
-        imageFile: null
-    })
+    const [project, setProject] = useState(initialProject)
+    const [name, setName] = useState(null)
 
     useEffect(() => {
         const secret = localStorage.getItem('_homepage_auth_secret_')
@@ -30,11 +31,40 @@ export default function Admin() {
         }, 'base64')
     }
 
-    const createProject = async () => {
+    const inputChange = (event) => {
+        const newValue = {}
+        newValue[event.target.name] = event.target.value
+        setProject({ ...project, ...newValue })
+    }
+
+    const createProject = async (event) => {
+        event.preventDefault()
+
+        for (let key of Object.keys(project)) {
+            if (!project[key]) {
+                console.log('notify')
+                return
+            }
+        }
+
         axios.post('/api/createProject', project)
-            .then()
+            .then(res => {
+                console.log(res.data)
+                setProject(initialProject)
+            })
             .catch(e => console.log(e))
     }// usar o toastfy
+
+    const deleteProject = async (event) => {
+        event.preventDefault()
+
+        axios.put('/api/deleteProject', { name })
+            .then(res => {
+                console.log(res.data)
+                setName(null)
+            })
+            .catch( e => console.log(e))
+    }
 
     return (
         <div>
@@ -46,11 +76,28 @@ export default function Admin() {
                 <section>Estatísticas de uso</section>
                 <section>
                     <h2>CRUD de projetos</h2>
-                    <input type="file" onChange={event => addImage(event.target.files[0])} />
-                    <button onClick={createProject}>Create Project</button>
+                    <form onSubmit={createProject}>
+                        <input type="text" value={project.name || ''} onChange={inputChange}
+                            name="name" placeholder="Name" />
+                        <input type="text" value={project.description || ''} onChange={inputChange}
+                            name="description" placeholder="Description" />
+                        <input type="text" value={project.project || ''} onChange={inputChange}
+                            name="project" placeholder="Project url" />
+                        <input type="text" value={project.github || ''} onChange={inputChange}
+                            name="github" placeholder="GitHub url" />
+                        <input type="file" name="imageFile"
+                            onChange={event => addImage(event.target.files[0])} />
+                        <button type="submit">Create Project</button>
+                    </form>
+
+                    <form onSubmit={deleteProject}>
+                        <input type="text" value={name || ''} onChange={event => setName(event.target.value)}
+                            name="name" placeholder="Name of project to delete" />
+                        <button type="submit">Delete</button>
+                    </form>
                 </section>
             </div>
         </div>
     )
-}
+} // falta os estilos e o toastify
 // está mostrando o conteúdo daqui antes de redirecionar para a home

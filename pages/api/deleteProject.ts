@@ -5,16 +5,11 @@ import { ProjectsController } from '../../server/controllers/projectsController'
 const projectsController = new ProjectsController()
 
 export default async function (req: NextApiRequest, res: NextApiResponse) {
-    const project = { ...req.body }
+    const name = req.body.name
 
-    const base64String = project.imageFile
-    const base64Image = base64String.split(';base64,').pop()
+    fs.unlinkSync(`./public/images/${name}.png`)
 
-    delete project.imageFile
-
-    fs.writeFileSync(`./public/images/${project.name}.png`, base64Image, { encoding: 'base64' })
-
-    const response = await projectsController.createProject(project)
+    const response = await projectsController.deleteProject(name)
 
     return res.status(response.status).send(response)
 }

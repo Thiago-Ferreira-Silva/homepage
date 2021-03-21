@@ -9,8 +9,7 @@ export class Migration20210317135302 extends Migration {
         name TEXT NOT NULL,
         description TEXT NOT NULL,
         project TEXT NOT NULL,
-        github TEXT NOT NULL,
-        image TEXT NOT NULL
+        github TEXT NOT NULL
       );
     `)
   }

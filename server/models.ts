@@ -22,9 +22,6 @@ class Projects {
     @Property()
     github: string
 
-    @Property()
-    image: string
-
     constructor() {
         if(!this.id) {
             this.id = uuid()
