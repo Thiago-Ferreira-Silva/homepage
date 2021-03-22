@@ -6,10 +6,10 @@ export class Migration20210317135302 extends Migration {
     this.addSql(`
       CREATE TABLE projects (
         id TEXT PRIMARY KEY,
-        name TEXT NOT NULL,
-        description TEXT NOT NULL,
-        project TEXT NOT NULL,
-        github TEXT NOT NULL
+        name TEXT NOT NULL UNIQUE,
+        description TEXT NOT NULL UNIQUE,
+        project TEXT NOT NULL UNIQUE,
+        github TEXT NOT NULL UNIQUE
       );
     `)
   }

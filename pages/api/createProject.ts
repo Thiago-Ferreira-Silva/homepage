@@ -12,9 +12,9 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 
     delete project.imageFile
 
-    fs.writeFileSync(`./public/images/${project.name}.png`, base64Image, { encoding: 'base64' })
+    const response = await projectsController.createProject(project, () => {
+        fs.writeFileSync(`./public/images/${project.name}.png`, base64Image, { encoding: 'base64' })
+    })
 
-    const response = await projectsController.createProject(project)
-
-    return res.status(response.status).send(response)
+    return res.send(response)
 }

@@ -19,31 +19,32 @@ class ProjectsController {
         return projects
     }
 
-    async createProject(project: Project) {
+    async createProject(project: Project, callback?: Function) {
         const orm = await MikroORM.init(config)
         const projectsRepository = orm.em.getRepository(Projects)
 
         try {
             const newProject = projectsRepository.create(project)
             await projectsRepository.persist(newProject).flush()
-
-            return { status: 201, msg: "Successfully created!" }
         } catch(e) {
             return { status: 500, msg: "Error at creating project" }
         }
+        callback()
+        return { status: 201, msg: "Successfully created!" }
     }
 
-    async deleteProject(name: string) {
+    async deleteProject(name: string, callback?: Function) {
         const orm = await MikroORM.init(config)
         const projectsRepository = orm.em.getRepository(Projects)
 
         try {
             const project = await projectsRepository.findOne({ name })
             await projectsRepository.removeAndFlush(project)
-            return { status: 201, msg: "Successfully deleted!" }
         } catch(e) {
             return { status: 500, msg: "Error at deleting project" }
         }
+        callback()
+        return { status: 201, msg: "Successfully deleted!" }
     }
 }
 export { ProjectsController }

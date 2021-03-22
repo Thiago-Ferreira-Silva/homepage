@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Resizer from 'react-image-file-resizer'
+import { notify } from '../utils/alerts'
 
 import styles from '../styles/pages/Admin.module.scss'
 
@@ -42,25 +43,25 @@ export default function Admin() {
 
         for (let key of Object.keys(project)) {
             if (!project[key]) {
-                console.log('notify')
+                notify(`Missing ${key}`, 500)
                 return
             }
         }
 
         axios.post('/api/createProject', project)
             .then(res => {
-                console.log(res.data)
+                notify(res.data.msg, res.data.status)
                 setProject(initialProject)
             })
             .catch(e => console.log(e))
-    }// usar o toastfy
+    }
 
     const deleteProject = async (event) => {
         event.preventDefault()
 
         axios.put('/api/deleteProject', { name })
             .then(res => {
-                console.log(res.data)
+                notify(res.data.msg, res.data.status)
                 setName(null)
             })
             .catch( e => console.log(e))
@@ -99,5 +100,6 @@ export default function Admin() {
             </div>
         </div>
     )
-} // falta os estilos e o toastify
+} // falta os estilos e as métricas
+// colocar os nomes das imagens em lower case antes de criar ou buscar
 // está mostrando o conteúdo daqui antes de redirecionar para a home
