@@ -6,6 +6,8 @@ import Resizer from 'react-image-file-resizer'
 import { notify } from '../utils/alerts'
 
 import styles from '../styles/pages/Admin.module.scss'
+import { GetServerSideProps } from 'next'
+import { MetricsController } from '../server/controllers/metricsController'
 
 const initialProject = {
     name: null,
@@ -15,7 +17,7 @@ const initialProject = {
     imageFile: null
 }
 
-export default function Admin() {
+export default function Admin({ visits }) {
     const router = useRouter()
     const [project, setProject] = useState(initialProject)
     const [name, setName] = useState(null)
@@ -64,7 +66,7 @@ export default function Admin() {
                 notify(res.data.msg, res.data.status)
                 setName(null)
             })
-            .catch( e => console.log(e))
+            .catch(e => console.log(e))
     }
 
     return (
@@ -74,9 +76,8 @@ export default function Admin() {
             </Head>
 
             <div className={styles.container}>
-                <section>Estatísticas de uso</section>
                 <section>
-                    <h2>CRUD de projetos</h2>
+                    <h2>Create Project</h2>
                     <form onSubmit={createProject}>
                         <input type="text" value={project.name || ''} onChange={inputChange}
                             name="name" placeholder="Name" />
@@ -90,16 +91,26 @@ export default function Admin() {
                             onChange={event => addImage(event.target.files[0])} />
                         <button type="submit">Create Project</button>
                     </form>
-
+                    <h2>Remove Project</h2>
                     <form onSubmit={deleteProject}>
                         <input type="text" value={name || ''} onChange={event => setName(event.target.value)}
                             name="name" placeholder="Name of project to delete" />
                         <button type="submit">Delete</button>
                     </form>
                 </section>
+                <section className={styles.metrics}>
+                    <p>You received {visits.length} visits.</p>
+                </section>
             </div>
         </div>
     )
-} // falta os estilos e as métricas
-// colocar os nomes das imagens em lower case antes de criar ou buscar
+}
 // está mostrando o conteúdo daqui antes de redirecionar para a home
+
+export const getServerSideProps: GetServerSideProps = async () => {
+    const metricsController = new MetricsController()
+    const visits = JSON.parse(JSON.stringify(await metricsController.getVisits()))
+    return {
+        props: { visits }
+    }
+}

@@ -15,7 +15,7 @@ class ProjectsController {
         const orm = await MikroORM.init(config)
         const projectsRepository = orm.em.getRepository(Projects)
 
-        const projects = await projectsRepository.find({})
+        const projects = await projectsRepository.findAll()
         return projects
     }
 

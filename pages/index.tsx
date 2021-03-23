@@ -7,6 +7,7 @@ import styles from '../styles/pages/Home.module.scss'
 import Project from '../components/Project'
 import { useEffect, useState } from 'react'
 import { ProjectsController } from '../server/controllers/projectsController'
+import axios from 'axios'
 
 interface Project {
   name: string
@@ -22,6 +23,7 @@ export default function Home({ projects }) {
   useEffect(() => {
     const projectsJSX = projects.map((project: Project) => <Project {...project} key={Math.random()} />)
     setProjectsJSX(projectsJSX)
+    axios.post('/api/newVisit').catch(e => {})
   }, [])
 
   return (
