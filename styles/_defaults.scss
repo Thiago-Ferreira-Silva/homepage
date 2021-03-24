@@ -8,3 +8,35 @@ $title: #fff;
 $text: #999;
 
 $primary-font: "RobotoMono", monospace;
+
+$very-small: 340px;
+$small: 440px;
+$medium: 605px;
+$big: 685px;
+
+
+@function translate-media-conditions($c) {
+    $condMap: (
+        ">very-small": "(min-width: #{$very-small + 1})",
+        "<very-small": "(max-width: #{$very-small})",
+        ">small": "(min-width: #{$small + 1})",
+        "<small": "(max-width: #{$small})",
+        ">medium": "(min-width: #{$medium + 1})",
+        "<medium": "(max-width: #{$medium})",
+        ">big": "(min-width: #{$big + 1})",
+        "<big": "(max-width: #{$big})"
+    );
+    @return map-get($condMap, $c );
+}
+
+@mixin media($args...) {
+    $query: "";
+    @each $arg in $args {
+        $op: "";
+        @if ($query != "") {
+            $op: "and";
+        }
+        $query: $query + $op + translate-media-conditions($arg);
+    }
+    @media #{$query} { @content; }
+}

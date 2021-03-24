@@ -16,6 +16,11 @@
         ul {
             display: flex;
             flex-wrap: wrap;
+
+            @include media("<medium") {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     }
 

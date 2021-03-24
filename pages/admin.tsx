@@ -104,7 +104,7 @@ export default function Admin({ visits }) {
             </div>
         </div>
     )
-}
+}// colocar um gráfico nas métricas
 // está mostrando o conteúdo daqui antes de redirecionar para a home
 
 export const getServerSideProps: GetServerSideProps = async () => {
