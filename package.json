@@ -26,7 +26,7 @@
     "@mikro-orm/cli": "^4.4.4",
     "@mikro-orm/core": "^4.4.4",
     "@mikro-orm/migrations": "^4.4.4",
-    "@mikro-orm/sqlite": "^4.4.4",
+    "@mikro-orm/mongodb": "^4.5.0",
     "axios": "^0.21.1",
     "babel-plugin-transform-typescript-metadata": "^0.3.1",
     "next": "10.0.6",
@@ -37,7 +37,6 @@
     "recharts": "^2.0.9",
     "reflect-metadata": "^0.1.13",
     "sass": "^1.32.8",
-    "sqlite3": "^5.0.2",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

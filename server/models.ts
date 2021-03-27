@@ -1,4 +1,5 @@
-import { Entity, PrimaryKey, Property, EntityRepositoryType } from '@mikro-orm/core'
+import { Entity, SerializedPrimaryKey, Property, EntityRepositoryType, PrimaryKey } from '@mikro-orm/core'
+import { ObjectId } from '@mikro-orm/mongodb'
 import { v4 as uuid } from 'uuid'
 import { MetricsRepository, ProjectsRepository } from './repositories'
 
@@ -8,6 +9,9 @@ class Projects {
     [EntityRepositoryType]?: ProjectsRepository
 
     @PrimaryKey()
+    _id!: ObjectId;
+
+    @SerializedPrimaryKey()
     readonly id: string
 
     @Property()
@@ -33,8 +37,11 @@ class Projects {
 class Metrics {
 
     [EntityRepositoryType]?: MetricsRepository
-    
+
     @PrimaryKey()
+    _id!: ObjectId;
+    
+    @SerializedPrimaryKey()
     readonly id: string
 
     @Property()
