@@ -16,7 +16,7 @@ class MetricsController {
             console.log(e)
         }
     }
-
+    
     async getVisits() {
         const orm = await MikroORM.init(config)
         console.log('orm',orm) /////// temporário

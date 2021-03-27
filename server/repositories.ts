@@ -1,4 +1,4 @@
-import { EntityRepository } from '@mikro-orm/sqlite'
+import { EntityRepository } from '@mikro-orm/mongodb'
 import { Metrics, Projects } from './models'
 
 class ProjectsRepository extends EntityRepository<Projects> {}
