@@ -8,7 +8,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
     const name = req.body.name
 
     const response = await projectsController.deleteProject(name, () => {
-        fs.unlinkSync(`./public/images/${name}.png`)
+        fs.unlinkSync( __dirname + `../../public/images/${name}.png`)
     })
     return res.send(response)
 }
