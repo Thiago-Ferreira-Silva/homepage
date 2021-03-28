@@ -40,7 +40,7 @@ export default function VisitsChart({ visits }) {
     }, [])
 
     return (
-        <ResponsiveContainer width="80%">
+        <ResponsiveContainer width="80%" minHeight="200px">
             <BarChart width={500} height={300} data={data} >
                 <Bar dataKey="amount" fill="#aaf" />
                 <XAxis dataKey="date" />

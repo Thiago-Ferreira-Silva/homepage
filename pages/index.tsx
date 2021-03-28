@@ -69,9 +69,9 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const projectsController = new ProjectsController()
   const projects = JSON.parse(JSON.stringify(await projectsController.getProjects()))
+  console.log(projects) ///// temporário
   return {
-    props: { projects }
+    props: { projects },
+    revalidate: 60
   }
 }
-
-// deixar responsivo para mobile
