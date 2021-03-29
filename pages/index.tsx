@@ -24,7 +24,7 @@ export default function Home({ projects }) {
   useEffect(() => {
     const projectsJSX = projects.map((project: Project) => <Project {...project} key={Math.random()} />)
     setProjectsJSX(projectsJSX)
-    axios.post('/api/newVisit').catch(e => {})
+    axios.post('/api/newVisit').catch(e => { })
   }, [])
 
   return (
@@ -34,9 +34,10 @@ export default function Home({ projects }) {
       </Head>
 
       <div className={styles.container}>
-        <h1>Hello, I'm me, a web developer and math student, I'll put some cool stuff here </h1>
-
-        <p>Not sure about the semantic, I have to improve that.</p>
+        <section className={styles.content}>
+          <h1>Hello, I'm Thiago, a React|Nodejs developer </h1>
+          <p>I'm from Minas Gerais, Brazil and my favorite hobby is to do anything that will change the way I see the world and bring me new horizons.</p>
+        </section>
 
         <section className={styles.projects} >
           <h2>My projects</h2>

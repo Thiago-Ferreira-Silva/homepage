@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from 'recharts'
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip } from 'recharts'
 
 export default function VisitsChart({ visits }) {
 
@@ -45,6 +45,7 @@ export default function VisitsChart({ visits }) {
                 <Bar dataKey="amount" fill="#aaf" />
                 <XAxis dataKey="date" />
                 <YAxis />
+                <Tooltip />
             </BarChart>
         </ResponsiveContainer>
     )

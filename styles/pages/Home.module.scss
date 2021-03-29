@@ -1,6 +1,8 @@
 @import "../defaults";
 
 .container {
+    text-align: center;
+
     h1 {
         color: $title;
     }
@@ -9,10 +11,16 @@
         color: $title;
     }
 
+    p {
+        color: $text;
+    }
+
+    section.content {
+        padding: 0 4px;
+    }
+
     section.projects,
     section.contact {
-        text-align: center;
-
         ul {
             display: flex;
             flex-wrap: wrap;
@@ -28,9 +36,5 @@
         a {
             margin-right: 1rem;
         }
-    }
-
-    p {
-        color: $text;
     }
 }

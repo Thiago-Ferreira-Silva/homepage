@@ -5,5 +5,5 @@ const metricsControler = new MetricsController()
 
 export default async function(req: NextApiRequest, res: NextApiResponse) {
     metricsControler.newVisit()
-    return res.status(201)
+    return res.status(201).send('ok')
 }
