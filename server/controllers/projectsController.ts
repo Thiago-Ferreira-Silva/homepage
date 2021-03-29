@@ -19,7 +19,7 @@ class ProjectsController {
         return projects
     }
 
-    async createProject(project: Project, callback?: Function) {
+    async createProject(project: Project) {
         const orm = await MikroORM.init(config)
         const projectsRepository = orm.em.getRepository(Projects)
 
@@ -29,11 +29,10 @@ class ProjectsController {
         } catch(e) {
             return { status: 500, msg: "Error at creating project" }
         }
-        callback()
         return { status: 201, msg: "Successfully created!" }
     }
 
-    async deleteProject(name: string, callback?: Function) {
+    async deleteProject(name: string) {
         const orm = await MikroORM.init(config)
         const projectsRepository = orm.em.getRepository(Projects)
 
@@ -43,7 +42,6 @@ class ProjectsController {
         } catch(e) {
             return { status: 500, msg: "Error at deleting project" }
         }
-        callback()
         return { status: 201, msg: "Successfully deleted!" }
     }
 }

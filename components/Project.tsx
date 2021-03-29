@@ -7,12 +7,13 @@ interface ProjectProps {
     description: string
     project: string
     github: string
+    image: string
 }
 
-export default function Project({ name, description, project, github }: ProjectProps) {
+export default function Project({ name, description, project, github, image }: ProjectProps) {
     return (
         <div className={styles.container}>
-            <Image className={styles.image} src={`/images/${name.toLowerCase()}.png`} width='800' height='800' alt="Project" />
+            <Image className={styles.image} src={image} width='800' height='800' alt="Project" />
             <div className={styles.content}>
                 <a href={project} target="_blank" className={styles.projectLink}><h2>{name}</h2></a>
                 <section>

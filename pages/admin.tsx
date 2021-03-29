@@ -15,7 +15,7 @@ const initialProject = {
     description: null,
     project: null,
     github: null,
-    imageFile: null
+    image: null
 }
 
 export default function Admin({ visits }) {
@@ -26,8 +26,6 @@ export default function Admin({ visits }) {
 
     useEffect(() => {
         const secret = localStorage.getItem('_homepage_auth_secret_')
-        console.log(process.env.NEXT_PUBLIC_AUTH_SECRET) /////// temporário
-        console.log(secret) /////// temporário
 
         if (secret !== process.env.NEXT_PUBLIC_AUTH_SECRET) {
             router.push('/')
@@ -36,9 +34,9 @@ export default function Admin({ visits }) {
         }
     }, [])
 
-    const addImage = (image) => {
-        Resizer.imageFileResizer(image, 800, 800, 'PNG', 100, 0, imageFile => {
-            setProject({ ...project, imageFile })
+    const addImage = (imageFile) => {
+        Resizer.imageFileResizer(imageFile, 800, 800, 'PNG', 100, 0, image => {
+            setProject({ ...project, image })
         }, 'base64')
     }
 
@@ -108,7 +106,7 @@ export default function Admin({ visits }) {
                         </form>
                     </section>
                     <section className={styles.metrics}>
-                        <VisitsChart visits={visits}/>
+                        <VisitsChart visits={visits} />
                         <p>You received {visits.length} visits.</p>
                     </section>
                 </div> :
@@ -118,14 +116,11 @@ export default function Admin({ visits }) {
             }
         </div>
     )
-}// colocar o fullPath no caminho para o db com path.join e consertar a imagem que não aparece
-// o gráfico está com height 0 e coloque também os dias que não têm acessos
+}
 
 export const getServerSideProps: GetServerSideProps = async () => {
     const metricsController = new MetricsController()
-    console.log(metricsController) /////// temporário
     const visits = JSON.parse(JSON.stringify(await metricsController.getVisits()))
-    console.log(visits) /////// temporário
     return {
         props: { visits }
     }

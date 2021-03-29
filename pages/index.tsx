@@ -14,6 +14,7 @@ interface Project {
   description: string
   project: string
   github: string
+  image: string
 }
 
 export default function Home({ projects }) {
@@ -69,9 +70,8 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const projectsController = new ProjectsController()
   const projects = JSON.parse(JSON.stringify(await projectsController.getProjects()))
-  console.log(projects) ///// temporário
   return {
     props: { projects },
-    revalidate: 60
+    revalidate: 600
   }
 }

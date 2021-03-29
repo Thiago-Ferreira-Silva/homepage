@@ -1,1 +1,2 @@
+DB_URL = ''
 NEXT_PUBLIC_AUTH_SECRET = 'abcde'
