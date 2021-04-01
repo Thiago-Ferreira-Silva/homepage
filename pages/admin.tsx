@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import React, { FormEvent, useEffect, useState } from 'react'
 import axios from 'axios'
 import Resizer from 'react-image-file-resizer'
 import { notify } from '../utils/alerts'
@@ -34,19 +34,19 @@ export default function Admin({ visits }) {
         }
     }, [])
 
-    const addImage = (imageFile) => {
+    const addImage = (imageFile: File) => {
         Resizer.imageFileResizer(imageFile, 800, 800, 'PNG', 100, 0, image => {
             setProject({ ...project, image })
         }, 'base64')
     }
 
-    const inputChange = (event) => {
+    const inputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const newValue = {}
         newValue[event.target.name] = event.target.value
         setProject({ ...project, ...newValue })
     }
 
-    const createProject = async (event) => {
+    const createProject = async (event: React.FormEvent) => {
         event.preventDefault()
 
         for (let key of Object.keys(project)) {
@@ -64,7 +64,7 @@ export default function Admin({ visits }) {
             .catch(e => console.log(e))
     }
 
-    const deleteProject = async (event) => {
+    const deleteProject = async (event: React.FormEvent) => {
         event.preventDefault()
 
         axios.put('/api/deleteProject', { name })
