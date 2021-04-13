@@ -35,8 +35,15 @@ export default function Home({ projects }) {
 
       <div className={styles.container}>
         <section className={styles.content}>
-          <h1>Hello, I'm Thiago, a React|Nodejs developer </h1>
-          <p>I'm from Minas Gerais, Brazil and my favorite hobby is to do anything that will change the way I see the world and bring me new horizons.</p>
+          <h1>Olá, eu sou o Thiago, um desenvolvedor React|Nodejs </h1>
+          <p>Eu sou de Minas Gerais e meu hobby favorito é fazer qualquer coisa que vai mudar a forma como eu vejo o mundo e me trazer novos horizontes.</p>
+          <p>Meu primeiro contato com o javascript foi por volta de 2013 tentando desenvolver jogos 
+em Unity, mas foi apenas recentemente que eu comecei a estudar programação de forma 
+séria. Iniciei um curso de desenvolvimento web pouco depois de terminar o ensino médio, 
+em 2019, e nele eu aprendi os princípios básicos de javascript, html e css, além de 
+fundamentos de jQuery, Vue, Angular, React, SQL e MongoDb, porém o que eu ganhei de 
+mais valioso naquele curso foi a capacidade de pesquisar, ler as documentações e 
+responder às minhas próprias perguntas.</p>
         </section>
 
         <section className={styles.projects} >
