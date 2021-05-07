@@ -37,22 +37,23 @@ export default function Home({ projects }) {
         <section className={styles.content}>
           <h1>Olá, eu sou o Thiago, um desenvolvedor React|Nodejs </h1>
           <p>
-            Eu sou de Minas Gerais e meu hobby favorito é fazer qualquer coisa que vai mudar a forma como eu vejo o mundo e me trazer novos horizontes.
+            Eu sou de Minas Gerais e meu hobby favorito é fazer qualquer coisa que vai mudar a forma
+              como eu vejo o mundo e me trazer novos horizontes.
           </p>
           <p>
             Meu primeiro contato com o javascript foi por volta de 2013 tentando desenvolver jogos 
-em Unity, mas foi apenas recentemente que eu comecei a estudar programação de forma 
-séria. Iniciei um curso de desenvolvimento web pouco depois de terminar o ensino médio, 
-em 2019, e nele eu aprendi os princípios básicos de javascript, html e css, além de 
-fundamentos de jQuery, Vue, Angular, React, SQL e MongoDb, porém o que eu ganhei de 
-mais valioso naquele curso foi a capacidade de pesquisar, ler as documentações e 
-responder às minhas próprias perguntas.
+              em Unity, mas foi apenas recentemente que eu comecei a estudar programação de forma 
+              séria. Iniciei um curso de desenvolvimento web pouco depois de terminar o ensino médio, 
+              em 2019, e nele eu aprendi os princípios básicos de javascript, html e css, além de 
+              fundamentos de jQuery, Vue, Angular, React, SQL e MongoDb, porém o que eu ganhei de 
+              mais valioso naquele curso foi a capacidade de pesquisar, ler as documentações e 
+              responder às minhas próprias perguntas.
           </p>
           <p>
             Desde então, eu me dediquei a projetos que pudessem melhor fixar os meus conhecimentos 
-e me trazer alguma experiência com os inúmeros imprevistos que podem ocorrer durante o 
-desenvolvimento e a disponibilização de uma aplicação. Com isso eu acabei ganhando 
-maior familiaridade com algumas tecnologias: React, Next, Node, MongoDb e PostgreSQL.
+              e me trazer alguma experiência com os inúmeros imprevistos que podem ocorrer durante o 
+              desenvolvimento e a disponibilização de uma aplicação. Com isso eu acabei ganhando 
+              maior familiaridade com algumas tecnologias: React, Next, Node, MongoDb e PostgreSQL.
           </p>
         </section>
 
